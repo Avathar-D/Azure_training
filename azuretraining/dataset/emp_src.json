@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "Emp_copy.csv.txt",
+				"fileName": "emp_src.csv",
 				"folderPath": "src",
 				"container": "avadev1container"
 			},

@@ -1,0 +1,36 @@
+{
+	"name": "copy_emp_csv_emp_tgt_db",
+	"properties": {
+		"folder": {
+			"name": "Project1"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "emp_src",
+						"type": "DatasetReference"
+					},
+					"name": "inpempcsv"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          ENAME as string,",
+				"          DNO as string,",
+				"          JOB as string,",
+				"          EMPNO as string,",
+				"          HIREDATE as string,",
+				"          LOC_ID as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     limit: 100,",
+				"     ignoreNoFilesFound: false) ~> inpempcsv"
+			]
+		}
+	}
+}
