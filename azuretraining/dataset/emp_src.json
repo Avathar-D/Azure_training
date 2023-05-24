@@ -1,0 +1,52 @@
+{
+	"name": "emp_src",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Project1/src"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Emp_copy.csv.txt",
+				"folderPath": "src",
+				"container": "avadev1container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ENAME",
+				"type": "String"
+			},
+			{
+				"name": "DNO",
+				"type": "String"
+			},
+			{
+				"name": "JOB",
+				"type": "String"
+			},
+			{
+				"name": "EMPNO",
+				"type": "String"
+			},
+			{
+				"name": "HIREDATE",
+				"type": "String"
+			},
+			{
+				"name": "LOC_ID",
+				"type": "String"
+			}
+		]
+	}
+}
