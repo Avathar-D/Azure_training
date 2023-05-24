@@ -73,6 +73,9 @@
 				]
 			}
 		],
+		"folder": {
+			"name": "testing"
+		},
 		"annotations": [],
 		"lastPublishTime": "2023-05-19T06:32:14Z"
 	},

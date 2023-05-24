@@ -135,6 +135,9 @@
 				]
 			}
 		],
+		"folder": {
+			"name": "testing"
+		},
 		"annotations": [],
 		"lastPublishTime": "2023-05-19T13:48:54Z"
 	},

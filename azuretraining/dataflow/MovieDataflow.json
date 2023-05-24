@@ -1,6 +1,9 @@
 {
 	"name": "MovieDataflow",
 	"properties": {
+		"folder": {
+			"name": "testing"
+		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [

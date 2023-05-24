@@ -1,0 +1,9 @@
+{
+	"name": "copy_srcfiles_to_table",
+	"properties": {
+		"folder": {
+			"name": "Project1"
+		},
+		"annotations": []
+	}
+}
