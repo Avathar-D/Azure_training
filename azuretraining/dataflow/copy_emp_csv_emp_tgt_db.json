@@ -15,7 +15,15 @@
 					"name": "inpempcsv"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "db_emp_tgt",
+						"type": "DatasetReference"
+					},
+					"name": "emptgtdb"
+				}
+			],
 			"transformations": [],
 			"scriptLines": [
 				"source(output(",
@@ -29,7 +37,32 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     limit: 100,",
-				"     ignoreNoFilesFound: false) ~> inpempcsv"
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> inpempcsv",
+				"inpempcsv sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          empid as decimal(10,0),",
+				"          ename as string,",
+				"          sal as decimal(10,2),",
+				"          deptno as decimal(2,0),",
+				"          locid as decimal(4,0)",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     dateFormat:'yyyy-MM-dd',",
+				"     timestampFormat:'yyyy-MM-dd\\'T\\'HH:mm:ss',",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          ename = ENAME,",
+				"          empid = EMPNO,",
+				"          deptno = DNO,",
+				"          locid = LOC_ID",
+				"     ),",
+				"     partitionBy('hash', 1)) ~> emptgtdb"
 			]
 		}
 	}
